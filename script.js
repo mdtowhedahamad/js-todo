@@ -29,3 +29,29 @@ function saveTasks() {
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+function loadTasks() {
+  const saved = JSON.parse(localStorage.getItem("tasks") || "[]");
+  saved.forEach((task) => {
+    const li = document.createElement("li");
+    li.textContent = task.text;
+    if (task.completed) li.classList.add("completed");
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "❌";
+    deleteBtn.onclick = () => {
+      li.remove();
+      saveTasks();
+    };
+    li.appendChild(deleteBtn);
+
+    li.addEventListener("click", () => {
+      li.classList.toggle("completed");
+      saveTasks();
+    });
+
+    document.getElementById("todo-list").appendChild(li);
+  });
+}
+
+window.onload = loadTasks;
