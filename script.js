@@ -14,3 +14,7 @@ const deleteBtn = document.createElement("button");
 deleteBtn.textContent = "❌";
 deleteBtn.onclick = () => li.remove();
 li.appendChild(deleteBtn);
+
+li.addEventListener("click", () => {
+  li.classList.toggle("completed");
+});
