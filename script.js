@@ -55,3 +55,13 @@ function loadTasks() {
 }
 
 window.onload = loadTasks;
+
+function filterTasks(type) {
+  document.querySelectorAll("#todo-list li").forEach((li) => {
+    if (type === "all") li.style.display = "block";
+    else if (type === "completed")
+      li.style.display = li.classList.contains("completed") ? "block" : "none";
+    else if (type === "incomplete")
+      li.style.display = !li.classList.contains("completed") ? "block" : "none";
+  });
+}
