@@ -9,3 +9,8 @@ document.getElementById("todo-form").addEventListener("submit", function (e) {
   document.getElementById("todo-list").appendChild(li);
   input.value = "";
 });
+
+const deleteBtn = document.createElement("button");
+deleteBtn.textContent = "❌";
+deleteBtn.onclick = () => li.remove();
+li.appendChild(deleteBtn);
