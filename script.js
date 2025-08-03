@@ -18,3 +18,14 @@ li.appendChild(deleteBtn);
 li.addEventListener("click", () => {
   li.classList.toggle("completed");
 });
+
+function saveTasks() {
+  const tasks = [];
+  document.querySelectorAll("#todo-list li").forEach((li) => {
+    tasks.push({
+      text: li.childNodes[0].nodeValue,
+      completed: li.classList.contains("completed"),
+    });
+  });
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
