@@ -17,3 +17,11 @@ ul {
   text-decoration: line-through;
   color: gray;
 }
+
+form,
+#filters {
+  margin-bottom: 1rem;
+}
+button {
+  cursor: pointer;
+}
